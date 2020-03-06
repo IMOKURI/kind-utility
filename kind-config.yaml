@@ -1,0 +1,9 @@
+### https://kind.sigs.k8s.io/docs/user/quick-start/#advanced
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+    # image: kindest/node:v1.15.7@sha256:e2df133f80ef633c53c0200114fce2ed5e1f6947477dbc83261a6a921169488d
+### an ipv6 cluster
+# networking:
+#   ipFamily: ipv6
