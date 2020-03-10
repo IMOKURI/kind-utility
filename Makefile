@@ -1,11 +1,17 @@
 .PHONY: help
 .DEFAULT_GOAL := help
 
-up: ## Create a cluster
+up: ## Create a Kind cluster
         kind create cluster --config conf/kind-config.yaml
 
-down: ## Delete a cluster
+down: ## Delete a Kind cluster
         kind delete cluster
+
+up-mini: ## Create a Minikube cluster
+        minikube start --kubernetes-version=v1.14.0 --driver=none
+
+down-mini: ## Delete a Minikube cluster
+        minikube delete
 
 metal: ## Install MetalLB
         kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.8.3/manifests/metallb.yaml
