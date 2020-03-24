@@ -14,7 +14,7 @@ down-mini: ## Delete a Minikube cluster
         minikube delete
 
 metal: ## Install MetalLB
-        kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.9.2/manifests/metallb.yaml
+        kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.9.3/manifests/metallb.yaml
         kubectl apply -f conf/metallb-config.yaml
 
 istio: ## Install istio
