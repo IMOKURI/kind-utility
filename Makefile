@@ -8,13 +8,8 @@ down: ## Delete a Kind cluster
 	kind delete cluster
 
 metal: ## Install MetalLB
-	kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.4/manifests/namespace.yaml
-	kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.4/manifests/metallb.yaml
-	kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$$(openssl rand -base64 128)"
+	kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.5/config/manifests/metallb-native.yaml
 	kubectl apply -f conf/metallb-config.yaml
-
-istio: ## Install istio
-	istioctl manifest apply --set profile=demo
 
 nginx: ## Deploy sample nginx application
 	kubectl get namespace my-nginx || kubectl create namespace my-nginx
