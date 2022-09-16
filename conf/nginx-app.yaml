@@ -20,7 +20,7 @@ metadata:
   labels:
     app: nginx
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: nginx
@@ -31,6 +31,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.7.9
+        # image: nginx:1.7.9
+        image: imokuri123/nginx-ipv6:1.17 # for IPv6
         ports:
         - containerPort: 80

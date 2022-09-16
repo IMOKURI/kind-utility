@@ -5,4 +5,16 @@ metadata:
   namespace: metallb-system
 spec:
   addresses:
-    - 172.17.1.11-172.17.1.100
+    # docker network inspect -f '{{.IPAM.Config}}' kind で network address を確認し、そのサブネットワークを指定する
+    # - 172.18.1.11-172.18.1.100
+    - fc00:f853:ccd:e793:1::/120 # 256個
+
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: default
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+    - first-pool

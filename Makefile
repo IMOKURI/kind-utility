@@ -9,7 +9,8 @@ down: ## Delete a Kind cluster
 
 metal: ## Install MetalLB
 	kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.5/config/manifests/metallb-native.yaml
-	sleep 10
+
+metal-config: ## Configure MetalLB
 	kubectl apply -f conf/metallb-config.yaml
 
 nginx: ## Deploy sample nginx application
